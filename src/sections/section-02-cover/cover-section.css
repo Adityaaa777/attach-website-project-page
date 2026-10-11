@@ -1,0 +1,122 @@
+.attach-cover {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 722;
+  overflow: hidden;
+  background: radial-gradient(ellipse 44% 90% at 35% 18%, #28103c 0%, #15131a 56%, #111115 100%);
+  color: #fff;
+}
+
+.attach-cover__glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, #0000000e 44%, #00000058 100%);
+  pointer-events: none;
+}
+
+.attach-cover__navigation {
+  position: absolute;
+  z-index: 3;
+  top: 6.2327%;
+  inset-inline: 0;
+}
+
+.attach-cover__intro {
+  position: absolute;
+  z-index: 2;
+  top: 22.7%;
+  left: 5%;
+  width: 33%;
+}
+
+.attach-cover__intro h1,
+.attach-cover__intro p {
+  margin: 0;
+}
+
+.attach-cover__intro h1 {
+  font-size: 6.25cqw;
+  font-weight: 700;
+  line-height: 1.07;
+  letter-spacing: -0.045em;
+}
+
+.attach-cover__intro p {
+  max-width: 30cqw;
+  margin-top: 1cqw;
+  font-size: 1.3889cqw;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+}
+
+.attach-cover__artwork {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.attach-cover__back-screen,
+.attach-cover__front-screen {
+  position: absolute;
+  transform-origin: center;
+}
+
+.attach-cover__back-screen {
+  top: -112.74%;
+  left: 58.96%;
+  width: 44.51%;
+  height: 291.38%;
+  transform: rotate(7.04deg);
+  opacity: .75;
+  background: center / 100% 100% no-repeat url("/assets/attach/Attach web 1.png");
+}
+
+.attach-cover__front-screen {
+  top: 23.06%;
+  left: 41.94%;
+  width: 34.72%;
+  height: 99.74%;
+  transform: rotate(7deg);
+  border-radius: 12px;
+  box-shadow: 0 0 250px #0004, 50px 50px 153px #000b;
+  background: center / 100% 100% no-repeat url("/assets/attach/Blog page 1.png");
+}
+
+@media (max-width: 700px) {
+  .attach-cover {
+    min-height: 620px;
+    aspect-ratio: auto;
+  }
+
+  .attach-cover__intro {
+    top: 24%;
+    left: 7%;
+    width: 82%;
+  }
+
+  .attach-cover__intro h1 {
+    font-size: clamp(58px, 12vw, 84px);
+  }
+
+  .attach-cover__intro p {
+    max-width: 440px;
+    margin-top: 14px;
+    font-size: clamp(18px, 4vw, 24px);
+  }
+
+  .attach-cover__back-screen {
+    top: 44%;
+    left: 48%;
+    width: 60%;
+    height: 170%;
+  }
+
+  .attach-cover__front-screen {
+    top: 64%;
+    left: 27%;
+    width: 47%;
+    height: 97%;
+  }
+}
