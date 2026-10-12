@@ -18,6 +18,7 @@
   line-height: 1;
   text-decoration: none;
   white-space: nowrap;
+  transition: color 160ms ease, transform 160ms ease;
 }
 
 .attach-website-navigation__link img {
@@ -30,7 +31,8 @@
 }
 
 .attach-website-navigation__link:hover {
-  opacity: 0.8;
+  color: #c6b3ff;
+  transform: translateY(-3px);
 }
 
 .attach-website-navigation__link:focus-visible {

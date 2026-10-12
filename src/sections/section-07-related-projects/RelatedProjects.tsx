@@ -1,21 +1,47 @@
-import { useRef } from "react"
+import { useRelatedCarousel } from "./useRelatedCarousel"
 import "./related-projects.css"
 
 const projects = [
-  { title: "Safe 2 Destination", description: "Book safe daily or monthly rides with a seamless travel experience.", image: "/assets/related/safe-2-destination.png" },
-  { title: "Corezap", description: "Manage rides and fleet operations from one intelligent platform.", image: "/assets/related/corezap.png" },
-  { title: "Cabzo", description: "A smart ride booking app designed for fast, convenient, and reliable travel.", image: "/assets/related/cabzo.png" },
+  {
+    title: "Safe 2 Destination",
+    description: "Book safe daily or monthly rides with a seamless travel experience.",
+    category: "Mobile App Design",
+    image: "/assets/related-covers/related-safe2destination.webp",
+    href: "https://adityaaa777.github.io/safe2destination-project-page/",
+  },
+  {
+    title: "Cabzo",
+    description: "A smart ride booking app designed for fast, convenient, and reliable travel.",
+    category: "Mobile App Design",
+    image: "/assets/related-covers/related-cabzo.webp",
+    href: "https://adityaaa777.github.io/cabzo-project-page/",
+  },
+  {
+    title: "Attach App",
+    description: "Connect with caring listeners anytime, anywhere in a safe, supportive space.",
+    category: "Mobile App Design",
+    image: "/assets/related-covers/related-attach-app.webp",
+    href: "https://adityaaa777.github.io/attach-app-project-page/",
+  },
+  {
+    title: "Cyrus 24",
+    description: "Tap. Ride. Relax. A taxi service designed for simple, comfortable rides.",
+    category: "Mobile App Design",
+    image: "/assets/related-covers/related-cyrus-24.webp",
+    href: "https://adityaaa777.github.io/cyrus-24-project-page/",
+  },
+  {
+    title: "Nzcu",
+    description: "Book cars, scooters, e-rickshaws, and loaders—all from one platform.",
+    category: "Mobile App Design",
+    image: "/assets/related-covers/related-nzcu.webp",
+    href: "https://adityaaa777.github.io/nzcu-project-page/",
+  },
 ]
 
 /** Standalone related project carousel from Figma node 67:3793. */
 export default function RelatedProjects() {
-  const track = useRef<HTMLDivElement>(null)
-  const move = (direction: -1 | 1) => {
-    const element = track.current
-    if (!element) return
-    const card = element.querySelector<HTMLElement>(".website-related-card")
-    element.scrollBy({ left: direction * (card?.offsetWidth ?? 400) + direction * 32, behavior: "smooth" })
-  }
+  const { track, move } = useRelatedCarousel()
 
   return (
     <section className="website-section-08" aria-labelledby="website-related-title" data-node-id="67:3793">
@@ -29,19 +55,19 @@ export default function RelatedProjects() {
         </header>
         <div className="website-related-track" ref={track}>
           {projects.map((project) => (
-            <article className="website-related-card" key={project.title}>
+            <a className="website-related-card" href={project.href} key={project.title} aria-label={`View ${project.title} project`}>
               <img className="website-related-cover" src={project.image} alt={`${project.title} project cover`} />
               <div className="website-related-card-content">
                 <div className="website-related-meta">
-                  <span>Mobile App Design</span>
-                  <a className="website-related-card-arrow" href="#attach-project-footer" aria-label={`Open ${project.title} project`}>
+                  <span>{project.category}</span>
+                  <span className="website-related-card-arrow" aria-hidden="true">
                     <img src="/assets/section-08-related/project-arrow-alt.svg" alt="" />
-                  </a>
+                  </span>
                 </div>
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>
